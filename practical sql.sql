@@ -262,6 +262,8 @@ select client_no,name from client_master where client_no in(select client_no fro
 
 select client_no,name from client_master where client_no in(select client_no from sale_order where order_no in (select distinct order_no from sale_order_details where product_rate>10000));
 
+-------------------------------------------------------------------------------------------------------------------------------------
+select concat(P.description, 'Worth Rs', sum(s.qty_disp * s.product_rate))from product_master p,sale_order_details s where p.product_no=s.product_no group by p.description;
 
 select monthname('1996-01-25');select month(now());
 
